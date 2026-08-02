@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo App</title>
+</head>
+<body>
+
+<h1>My Todo List</h1>
+
+<a href="/add/">Add Task</a>
+
+<hr>
+
+{% for task in tasks %}
+
+<p>
+
+{% if task.completed %}
+<s>{{ task.title }}</s>
+{% else %}
+{{ task.title }}
+{% endif %}
+
+<a href="/complete/{{task.id}}/">Complete</a>
+
+<a href="/delete/{{task.id}}/">Delete</a>
+
+</p>
+
+{% empty %}
+
+<p>No Tasks Available</p>
+
+{% endfor %}
+
+</body>
+</html>
